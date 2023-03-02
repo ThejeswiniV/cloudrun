@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial scale=1.0">
+
+
+<title>Document</title>
+
+<style>
+
+
+
+    div
+    {
+        margin-top:100px;
+        line-height: 5px;
+        text-align: center;
+    }
+
+   
+</style>
+<img src="https://seeklogo.com/images/G/google-cloud-logo-ADE788217F-seeklogo.com.png" alt="Flowers in Chania" width="70" height="70">
+
+<div>
+    <h1>"Please Try Again Later"</h1><br/> <h2><span id="time"> </span></h2>
+</div>
+
+<script> 
+    function refreshTime() {
+    const timeDisplay = document.getElementById("time");
+    const dateString = new Date().toLocaleString();
+    const formattedString = dateString.replace(", ", " - ");
+    timeDisplay.textContent = formattedString;
+    }
+    setInterval(refreshTime, 1000);
+</script>
+
+</head>
+<body>
+</body>
+</html>
+
+
+
+

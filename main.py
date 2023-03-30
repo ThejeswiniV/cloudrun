@@ -20,10 +20,10 @@ credentials = service_account.Credentials.from_service_account_file("credentials
 def index() -> str:
     now = datetime.now()
     date_tdy=str(now.date())
-    datetime_str = date_tdy+' '+'4:40:00'
+    datetime_str = date_tdy+' '+'00:00:00'
     datetime_object = datetime.strptime(datetime_str, '%Y-%m-%d %H:%M:%S')
 
-    datetime_str1 = date_tdy+' '+'06:00:00'
+    datetime_str1 = date_tdy+' '+'23:59:59'
     datetime_object1 = datetime.strptime(datetime_str1, '%Y-%m-%d %H:%M:%S')
 
 

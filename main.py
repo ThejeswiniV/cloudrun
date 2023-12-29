@@ -2,12 +2,10 @@ import logging
 import os
 from typing import Union
 
-from flask import Flask, request,render_template
+from flask import Flask, request, render_template
 from google.cloud import storage
 from google.oauth2 import service_account
 from datetime import datetime
-
-
 
 app = Flask(__name__)
 
@@ -19,15 +17,14 @@ credentials = service_account.Credentials.from_service_account_file("credentials
 @app.route('/')
 def index() -> str:
     now = datetime.now()
-    date_tdy=str(now.date())
-    datetime_str = date_tdy+' '+'00:00:00'
+    date_tdy = str(now.date())
+    datetime_str = date_tdy + ' ' + '00:00:00'
     datetime_object = datetime.strptime(datetime_str, '%Y-%m-%d %H:%M:%S')
 
-    datetime_str1 = date_tdy+' '+'23:59:59'
+    datetime_str1 = date_tdy + ' ' + '23:59:59'
     datetime_object1 = datetime.strptime(datetime_str1, '%Y-%m-%d %H:%M:%S')
 
-
-    if(now.time()>=datetime_object.time() and now.time()<=datetime_object1.time()):
+    if now.time() >= datetime_object.time() and now.time() <= datetime_object1.time():
         return render_template("index.html")
     else:
         return render_template("time.html")
@@ -70,7 +67,6 @@ def server_error(e: Union[Exception, int]) -> str:
     An internal error occurred: <pre>{}</pre>
     See logs for full stacktrace.
     """.format(e), 500
-
 
 if __name__ == '__main__':
     # This is used when running locally. Gunicorn is used to run the
